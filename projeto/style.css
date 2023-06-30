@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -6,32 +6,32 @@
 :root {
   --text-color: white;
   --bg-url: url(./assets/bg-mobile.jpg);
-  --stroke-color:rgba(255, 255, 255, 0.5);
+  --stroke-color: rgba(255, 255, 255, 0.5);
   --surface-color: rgba(255, 255, 255, 0.1);
   --surface-color-hover: rgba(255, 255, 255, 0.5);
   --icon-color-: rgba(255, 255, 255, 0.5);
-  --switch-url: url(./assets/moon-stars.svg)
+  --switch-url: url(./assets/moon-stars.svg);
 }
-.light{
+.light {
   --text-color: black;
   --bg-url: url(./assets/bg-mobile-light.jpg);
   --stroke-color: rgba(0, 0, 0, 0.5);
-  --surface-color:  rgba(0, 0, 0, 0.1);
+  --surface-color: rgba(0, 0, 0, 0.1);
   --surface-color-hover: rgba(0, 0, 0, 0.5);
   --icon-color-: rgba(0, 0, 0, 0.5);
-  --switch-url: url(./assets/sun.svg)
+  --switch-url: url(./assets/sun.svg);
 }
-body{
+body {
   /*background-image: url(./assets/bg-mobile.jpg);
   background-repeat: no-repeat;
   background-position: top center;
   background-size: cover;*/
 
-background: var(--bg-url) no-repeat top center/ cover;
-height: 100vh;
+  background: var(--bg-url) no-repeat top center/ cover;
+  height: 100vh;
 }
-body *{
-  font-family: 'Inter', sans-serif;
+body * {
+  font-family: "Inter", sans-serif;
   color: var(--text-color);
 }
 #container {
@@ -39,7 +39,7 @@ body *{
   max-width: 588px;
   margin: 56px auto 0px;
 }
-#profile{
+#profile {
   text-align: center;
   padding: 24px;
 }
@@ -48,22 +48,22 @@ body *{
   border-radius: 50%;
   border: 3px solid rgba(99, 98, 98, 0.692);
 }
-#profile img{
+#profile img {
   width: 112px;
   display: block;
   margin: auto;
 }
-#profile p{
+#profile p {
   font-weight: 500;
   line-height: 24px;
   padding: 5px;
 }
-#switch{
+#switch {
   position: relative;
   width: 65px;
-  margin: 10px auto; 
+  margin: 10px auto;
 }
-#switch button{
+#switch button {
   width: 32px;
   height: 32px;
   border: none;
@@ -74,15 +74,16 @@ body *{
   left: 0;
   transform: translateY(-50%);
   top: 50%;
+  animation: slide-back 0.4s
 }
-#switch button:hover{
+#switch button:hover {
   cursor: pointer;
+  outline: 8px solid var(--surface-color);
 }
-.light #switch button{
-  right: 0;
-  left: initial;
+.light #switch button {
+  animation: slide-in 0.4s forwards;
 }
-#switch span{
+#switch span {
   display: block;
   width: 64px;
   height: 24px;
@@ -90,14 +91,14 @@ body *{
   background: var(--surface-color);
   border: 1px solid var(--stroke-color);
 }
-ul{
+ul {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 15px;
   padding: 24px 0;
 }
-ul li a{
+ul li a {
   backdrop-filter: blur(4px);
   background: var(--surface-color);
   border-radius: 9px;
@@ -110,18 +111,18 @@ ul li a{
   font-weight: 500;
   transition: background 0.5s;
 }
-ul li a:hover{
+ul li a:hover {
   background: var(--surface-color-hover);
   border: 2px solid var(--text-color);
 }
-div#icons{
+div#icons {
   margin: 30px 0;
   display: flex;
   justify-content: center;
   font-size: 30px;
   gap: 32px;
 }
-div#icons a{
+div#icons a {
   border-radius: 50%;
   align-items: center;
   justify-content: center;
@@ -130,20 +131,36 @@ div#icons a{
   font-size: 40px;
   transition: background 0.5s;
 }
-div#icons a:hover{
+div#icons a:hover {
   background-color: var(--icon-color-);
 }
-footer{
+footer {
   text-align: center;
   padding: 30px 0;
   font-size: 18px;
 }
 @media (min-width: 700px) {
-  :root{
+  :root {
     --bg-url: url(./assets/bg-desktop.jpg);
   }
-  .light{
+  .light {
     --bg-url: url(./assets/bg-desktop-light.jpg);
   }
-  
+}
+
+@keyframes slide-in {
+  from{
+    left:0
+  }
+  to{
+    left: 50%
+  }
+}
+@keyframes slide-back {
+  from{
+    left:50%
+  }
+  to{
+    left: 0 
+  }
 }
